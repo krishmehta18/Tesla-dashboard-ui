@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/krishmehta18/Tesla-dashboard-ui.git'
+                git branch: 'main', url: 'https://github.com/krishmehta18/Tesla-dashboard-ui.git'
             }
         }
 
