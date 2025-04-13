@@ -2,7 +2,7 @@
     agent any
 
     environment {
-        DOCKER_IMAGE = "krishmehta47/tesla-dashboard-ui"
+        DOCKER_IMAGE = "krishmehta18/tesla-dashboard-ui"
     }
 
     stages {
