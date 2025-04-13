@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_IMAGE = "krishmehta18/tesla-dashboard-ui"
+    }
+
     stages {
         stage('Clone Code') {
             steps {
@@ -11,22 +15,24 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("tesla/dashboard-ui:latest")
+                    docker.build(DOCKER_IMAGE)
                 }
             }
         }
 
         stage('Run Tests') {
             steps {
-                echo "Simulated test step – imagine we check layout or responsiveness here"
+                echo 'Tests go here. Skipping for now.'
             }
         }
 
         stage('Push to DockerHub') {
             steps {
-                withDockerRegistry([credentialsId: 'dockerhub-creds', url: '']) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     script {
-                        dockerImage.push()
+                        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+                            docker.image(DOCKER_IMAGE).push("latest")
+                        }
                     }
                 }
             }
@@ -34,11 +40,9 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f deploy.yaml || echo "Simulated deployment for demo"'
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
             }
         }
     }
 }
-
-                      
-           
