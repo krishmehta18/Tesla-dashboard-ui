@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tesla-dashboard-ui
+  labels:
+    app: tesla-dashboard-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tesla-dashboard-ui
+  template:
+    metadata:
+      labels:
+        app: tesla-dashboard-ui
+    spec:
+      containers:
+      - name: tesla-dashboard-ui
+        image: krishmehta18/tesla-dashboard-ui:latest
+        ports:
+        - containerPort: 80
