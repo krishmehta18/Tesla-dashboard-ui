@@ -1,0 +1,15 @@
+{
+  "name": "tesla-dashboard-ui",
+  "version": "1.0.0",
+  "main": "scripts.js",
+  "scripts": {
+    "build": "echo Building Tesla dashboard... && mkdir build && echo '<h1>Tesla UI Build</h1>' > build/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "description": ""
+}
