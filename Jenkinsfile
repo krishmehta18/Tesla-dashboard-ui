@@ -34,8 +34,11 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 // Assuming deployment.yaml and service.yaml are in the root folder
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                 sh '''
+                    export KUBECONFIG=$HOME/.kube/config
+                    kubectl apply -f deployment.yaml
+                    kubectl apply -f service.yaml
+                '''
             }
         }
     }
