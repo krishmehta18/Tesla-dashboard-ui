@@ -7,6 +7,6 @@ spec:
     app: tesla-dashboard-ui
   ports:
     - protocol: TCP
-      port: 80    # Exposing port 80 on the Service
-      targetPort: 3000   # The port the app inside the pod is using
-  type: LoadBalancer
+      port: 80
+      targetPort: 3000  # Make sure this is the port the app inside the pod is using
+  type: NodePort   # Change this to NodePort instead of LoadBalancer
