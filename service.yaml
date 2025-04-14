@@ -7,6 +7,6 @@ spec:
     app: tesla-dashboard-ui
   ports:
     - protocol: TCP
-      port: 80          # External port exposed by the service
-      targetPort: 3000   # Internal port where the app is running inside the pod
+      port: 80    # Exposing port 80 on the Service
+      targetPort: 3000   # The port the app inside the pod is using
   type: LoadBalancer
