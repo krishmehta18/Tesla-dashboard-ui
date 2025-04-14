@@ -1,20 +1,20 @@
-# Use official Node.js image
-FROM node:18-alpine
+# Use Node.js image
+FROM node:18
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy files
-COPY package.json ./
-COPY index.html ./
-COPY styles.css ./
-COPY scripts.js ./
+COPY . .
 
 # Install dependencies
 RUN npm install
 
-# Expose port
+# Build the UI
+RUN npm run build
+
+# Expose the correct port
 EXPOSE 3000
 
-# Run the app
-CMD [ "npx", "http-server", "-p", "3000" ]
+# Start the app
+CMD ["npm", "start"]
