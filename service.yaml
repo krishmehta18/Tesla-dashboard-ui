@@ -8,5 +8,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3000  # Make sure this is the port the app inside the pod is using
-  type: NodePort   # Change this to NodePort instead of LoadBalancer
+      targetPort: 3000
+  type: NodePort
