@@ -16,4 +16,4 @@ spec:
       - name: tesla-dashboard-ui
         image: krishmehta18/tesla-dashboard-ui:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000  # Change this to match the app's internal port
