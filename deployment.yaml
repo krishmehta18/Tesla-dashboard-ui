@@ -13,7 +13,7 @@ spec:
         app: tesla-dashboard-ui
     spec:
       containers:
-      - name: tesla-dashboard-ui
-        image: krishmehta18/tesla-dashboard-ui:latest
-        ports:
-        - containerPort: 3000  # Change this to match the app's internal port
+        - name: tesla-dashboard-ui
+          image: <your-dockerhub-username>/tesla-dashboard-ui:latest
+          ports:
+            - containerPort: 3000
