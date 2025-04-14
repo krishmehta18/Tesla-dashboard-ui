@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "scripts.js",
   "scripts": {
-    "build": "echo Building Tesla dashboard... && mkdir build && echo '<h1>Tesla UI Build</h1>' > build/index.html"
+    "build": "echo Building Tesla dashboard... && mkdir -p build && echo '<h1>Tesla UI Build</h1>' > build/index.html",
+    "start": "serve -s build -l 3000 --no-clipboard --listen 0.0.0.0:3000"
   },
   "keywords": [],
   "author": "",
